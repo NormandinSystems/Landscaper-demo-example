@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLeaf Landscapes | Professional Hardscaping & Design</title>
+    <meta name="description" content="Premium landscaping and hardscaping services. Transforming outdoor spaces into living paradises.">
+    
+    <!-- Fonts: Montserrat (Headings) and Open Sans (Body) for a professional trade look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons: Phosphor Icons (Lightweight & Clean) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS (CDN for immediate usage without build step) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#2F5233', // Deep Forest Green
+                            light: '#76B041', // Fresh Grass Green
+                            earth: '#8C705F', // Soil/Earth
+                            sand: '#F3F4F6',  // Light Grey/Sand
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Hero Parallax Effect */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('bg.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Scroll Reveal Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-md transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <i class="ph-fill ph-leaf text-brand-green text-3xl group-hover:text-brand-light transition-colors"></i>
+                    <span class="font-heading font-bold text-xl md:text-2xl text-gray-900 tracking-tight">GreenLeaf<span class="text-brand-green">.</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center gap-8 font-semibold text-sm uppercase tracking-wide">
+                    <a href="#services" class="hover:text-brand-green transition-colors">Services</a>
+                    <a href="#portfolio" class="hover:text-brand-green transition-colors">Portfolio</a>
+                    <a href="#about" class="hover:text-brand-green transition-colors">About</a>
+                    <a href="#testimonials" class="hover:text-brand-green transition-colors">Reviews</a>
+                    <a href="#contact" class="bg-brand-green text-white px-6 py-2.5 rounded-full hover:bg-brand-light transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Get a Quote
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden text-gray-800 focus:outline-none">
+                    <i class="ph ph-list text-3xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="bg-white border-t md:hidden">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-4 font-semibold text-center">
+                <a href="#services" class="mobile-link py-2 hover:text-brand-green">Services</a>
+                <a href="#portfolio" class="mobile-link py-2 hover:text-brand-green">Portfolio</a>
+                <a href="#about" class="mobile-link py-2 hover:text-brand-green">About</a>
+                <a href="#contact" class="mobile-link bg-brand-green text-white py-3 rounded-lg mx-4">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center text-center px-4 relative">
+        <div class="max-w-4xl mx-auto text-white reveal active">
+            <p class="font-heading font-semibold text-brand-light uppercase tracking-widest mb-4">Residential & Commercial</p>
+            <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                Transform Your <br> Outdoor Space
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+                Premium landscaping, hardscaping, and design services. We build backyards you'll never want to leave.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#contact" class="bg-brand-green text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-light transition-colors shadow-lg">
+                    Free Consultation
+                </a>
+                <a href="#portfolio" class="bg-white text-brand-green px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
+                    View Our Work
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white">
+            <i class="ph ph-arrow-down text-3xl"></i>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="bg-brand-green py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center md:justify-around gap-6 text-white text-center md:text-left items-center">
+                <div class="flex items-center gap-3">
+                    <i class="ph ph-shield-check text-3xl text-brand-light"></i>
+                    <div>
+                        <p class="font-bold text-sm uppercase">Fully Insured</p>
+                        <p class="text-xs text-gray-300">Liability & Workers Comp</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="ph ph-star text-3xl text-brand-light"></i>
+                    <div>
+                        <p class="font-bold text-sm uppercase">5-Star Rated</p>
+                        <p class="text-xs text-gray-300">100+ Happy Clients</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="ph ph-clock text-3xl text-brand-light"></i>
+                    <div>
+                        <p class="font-bold text-sm uppercase">15 Years Exp.</p>
+                        <p class="text-xs text-gray-300">Serving the Community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 relative reveal">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-brand-light/20 rounded-tl-3xl z-0"></div>
+                    <img src="landscaperworking.jpg" alt="Landscaper working" class="rounded-xl shadow-2xl relative z-10 w-full object-cover h-[500px]">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-xl z-20 max-w-xs hidden md:block">
+                        <p class="font-heading font-bold text-4xl text-brand-green mb-1">15+</p>
+                        <p class="text-gray-600 font-semibold">Years of turning yards into masterpieces.</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 reveal">
+                    <h4 class="text-brand-green font-bold uppercase tracking-wider mb-2">Who We Are</h4>
+                    <h2 class="font-heading text-4xl font-bold text-gray-900 mb-6">More Than Just <br>Lawn Care</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        At GreenLeaf, we believe your outdoor space is an extension of your home. Whether it's a simple maintenance plan or a complete hardscape renovation, we bring artistry, reliability, and science to every project.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-brand-light text-xl mt-1"></i>
+                            <span class="text-gray-700">Detailed 3D Design Renderings before we dig.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-brand-light text-xl mt-1"></i>
+                            <span class="text-gray-700">Native plant specialists for sustainable beauty.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-brand-light text-xl mt-1"></i>
+                            <span class="text-gray-700">Top-tier materials: Pavers, Stone, and Timber.</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-brand-green font-bold hover:text-brand-light flex items-center gap-2 group">
+                        Meet the Team <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-brand-sand/50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h4 class="text-brand-green font-bold uppercase tracking-wider mb-2">Our Services</h4>
+                <h2 class="font-heading text-4xl font-bold text-gray-900">Complete Outdoor Solutions</h2>
+                <div class="w-20 h-1 bg-brand-green mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow reveal group">
+                    <div class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-green transition-colors">
+                        <i class="ph-fill ph-potted-plant text-3xl text-brand-green group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Landscape Design</h3>
+                    <p class="text-gray-600 mb-4">Full-scale planning, planting selection, and garden bed installation for curb appeal.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow reveal group">
+                    <div class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-green transition-colors">
+                        <i class="ph-fill ph-wall text-3xl text-brand-green group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Hardscaping & Patios</h3>
+                    <p class="text-gray-600 mb-4">Custom pavers, retaining walls, fire pits, and walkways built to last.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow reveal group">
+                    <div class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-green transition-colors">
+                        <i class="ph-fill ph-scissors text-3xl text-brand-green group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Maintenance</h3>
+                    <p class="text-gray-600 mb-4">Weekly mowing, pruning, fertilization, and seasonal cleanup packages.</p>
+                </div>
+                
+                 <!-- Service 4 -->
+                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow reveal group">
+                    <div class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-green transition-colors">
+                        <i class="ph-fill ph-drop text-3xl text-brand-green group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Irrigation Systems</h3>
+                    <p class="text-gray-600 mb-4">Installation and repair of sprinkler systems to keep your lawn lush while saving water.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow reveal group">
+                    <div class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-green transition-colors">
+                        <i class="ph-fill ph-lightbulb text-3xl text-brand-green group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Outdoor Lighting</h3>
+                    <p class="text-gray-600 mb-4">Highlight your home's architecture and pathways with low-voltage LED systems.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow reveal group">
+                    <div class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-green transition-colors">
+                        <i class="ph-fill ph-tree text-3xl text-brand-green group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Tree Services</h3>
+                    <p class="text-gray-600 mb-4">Professional trimming, removal, and stump grinding for tree health and safety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+                <div>
+                    <h4 class="text-brand-green font-bold uppercase tracking-wider mb-2">Recent Projects</h4>
+                    <h2 class="font-heading text-4xl font-bold text-gray-900">Our Masterpieces</h2>
+                </div>
+                <a href="#" class="hidden md:block text-gray-500 hover:text-brand-green font-semibold mt-4 md:mt-0">View All Projects &rarr;</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Gallery Item 1 -->
+                <div class="group relative overflow-hidden rounded-xl h-80 reveal cursor-pointer">
+                    <img src="patio.jpg" alt="Patio" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h3 class="text-white font-heading font-bold text-xl">Modern Stone Patio</h3>
+                        <p class="text-gray-300 text-sm">Hardscaping</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative overflow-hidden rounded-xl h-80 reveal cursor-pointer">
+                    <img src="gardenpath.jpg" alt="Garden Path" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h3 class="text-white font-heading font-bold text-xl">Lush Walkway</h3>
+                        <p class="text-gray-300 text-sm">Landscape Design</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative overflow-hidden rounded-xl h-80 reveal cursor-pointer">
+                    <img src="backyard.jpg" alt="Backyard" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h3 class="text-white font-heading font-bold text-xl">Estate Maintenance</h3>
+                        <p class="text-gray-300 text-sm">Lawn Care</p>
+                    </div>
+                </div>
+                 <!-- Gallery Item 4 -->
+                 <div class="group relative overflow-hidden rounded-xl h-80 reveal cursor-pointer lg:col-span-2">
+                    <img src="pool.jpg" alt="Pool Area" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h3 class="text-white font-heading font-bold text-xl">Poolside Retreat</h3>
+                        <p class="text-gray-300 text-sm">Full Renovation</p>
+                    </div>
+                </div>
+                 <!-- Gallery Item 5 -->
+                 <div class="group relative overflow-hidden rounded-xl h-80 reveal cursor-pointer">
+                    <img src="firepit.jpg" alt="Firepit" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h3 class="text-white font-heading font-bold text-xl">Fire Pit Feature</h3>
+                        <p class="text-gray-300 text-sm">Hardscaping</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 md:hidden">
+                 <a href="#" class="text-brand-green font-semibold">View All Projects &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-brand-green text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12 reveal">What Your Neighbors Are Saying</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 reveal">
+                    <div class="flex justify-center mb-4 text-yellow-400 text-xl">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="mb-6 italic text-gray-200">"GreenLeaf completely transformed our muddy backyard into a stunning patio area. The crew was professional, fast, and left the place spotless."</p>
+                    <div class="font-bold font-heading">- Sarah Jenkins</div>
+                    <div class="text-xs text-brand-light uppercase">Hardscape Project</div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 reveal">
+                    <div class="flex justify-center mb-4 text-yellow-400 text-xl">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="mb-6 italic text-gray-200">"We use them for weekly maintenance and seasonal cleanup. Best decision we made. Our lawn is the envy of the HOA."</p>
+                    <div class="font-bold font-heading">- Mike & Lisa T.</div>
+                    <div class="text-xs text-brand-light uppercase">Lawn Maintenance</div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20 reveal">
+                    <div class="flex justify-center mb-4 text-yellow-400 text-xl">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="mb-6 italic text-gray-200">"Fair pricing and honest communication. They showed up when they said they would and finished on budget."</p>
+                    <div class="font-bold font-heading">- David R.</div>
+                    <div class="text-xs text-brand-light uppercase">Tree Removal</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Contact -->
+    <section id="contact" class="py-20 bg-brand-sand/50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row reveal">
+                
+                <!-- Contact Info Side -->
+                <div class="bg-brand-earth text-white p-10 md:w-2/5 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-heading text-2xl font-bold mb-6">Let's Discuss Your Project</h3>
+                        <p class="text-gray-200 mb-8">Fill out the form or give us a call to schedule your free consultation.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                    <i class="ph-fill ph-phone text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-300 uppercase">Call Us</p>
+                                    <p class="font-semibold">(555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                    <i class="ph-fill ph-envelope-simple text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-300 uppercase">Email</p>
+                                    <p class="font-semibold">hello@greenleaf.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                    <i class="ph-fill ph-map-pin text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-300 uppercase">Serving</p>
+                                    <p class="font-semibold">Greater Metro Area</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <p class="text-sm text-gray-300">&copy; 2024 GreenLeaf Landscapes</p>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="p-10 md:w-3/5">
+                    <form id="quote-form" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">First Name</label>
+                                <input type="text" required class="w-full bg-gray-50 border border-gray-200 rounded p-3 focus:outline-none focus:border-brand-green transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Last Name</label>
+                                <input type="text" required class="w-full bg-gray-50 border border-gray-200 rounded p-3 focus:outline-none focus:border-brand-green transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Phone</label>
+                            <input type="tel" required class="w-full bg-gray-50 border border-gray-200 rounded p-3 focus:outline-none focus:border-brand-green transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Service Needed</label>
+                            <select class="w-full bg-gray-50 border border-gray-200 rounded p-3 focus:outline-none focus:border-brand-green transition-colors text-gray-700">
+                                <option>Landscape Design</option>
+                                <option>Hardscaping / Patio</option>
+                                <option>Lawn Maintenance</option>
+                                <option>Tree Service</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Project Details</label>
+                            <textarea rows="4" class="w-full bg-gray-50 border border-gray-200 rounded p-3 focus:outline-none focus:border-brand-green transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-green text-white font-bold py-4 rounded hover:bg-brand-earth transition-colors shadow-lg">
+                            Request Free Quote
+                        </button>
+                        <p id="form-message" class="text-green-600 text-sm text-center font-semibold hidden">Thanks! We'll call you shortly.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center md:text-left">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                     <a href="#" class="flex items-center justify-center md:justify-start gap-2 group mb-4">
+                        <i class="ph-fill ph-leaf text-brand-green text-2xl"></i>
+                        <span class="font-heading font-bold text-xl text-white tracking-tight">GreenLeaf<span class="text-brand-green">.</span></span>
+                    </a>
+                    <p class="text-sm">Creating outdoor sanctuaries since 2009. Licensed, Bonded, and Insured.</p>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold uppercase mb-4">Services</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-brand-green">Design & Install</a></li>
+                        <li><a href="#" class="hover:text-brand-green">Hardscaping</a></li>
+                        <li><a href="#" class="hover:text-brand-green">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold uppercase mb-4">Company</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-brand-green">About Us</a></li>
+                        <li><a href="#" class="hover:text-brand-green">Portfolio</a></li>
+                        <li><a href="#" class="hover:text-brand-green">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold uppercase mb-4">Connect</h5>
+                    <div class="flex justify-center md:justify-start gap-4 text-xl">
+                        <a href="#" class="hover:text-white"><i class="ph-fill ph-facebook-logo"></i></a>
+                        <a href="#" class="hover:text-white"><i class="ph-fill ph-instagram-logo"></i></a>
+                        <a href="#" class="hover:text-white"><i class="ph-fill ph-twitter-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            // Toggle icon between list and x
+            if (mobileMenu.classList.contains('open')) {
+                menuIcon.classList.remove('ph-list');
+                menuIcon.classList.add('ph-x');
+            } else {
+                menuIcon.classList.remove('ph-x');
+                menuIcon.classList.add('ph-list');
+            }
+        });
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuIcon.classList.remove('ph-x');
+                menuIcon.classList.add('ph-list');
+            });
+        });
+
+        // 2. Scroll Reveal Animation
+        // This adds a class 'active' to elements with 'reveal' class when they scroll into view
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150; // Distance from bottom before revealing
+
+            revealElements.forEach((element) => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger once on load
+        revealOnScroll();
+
+        // 3. Form Submission Demo Logic
+        const form = document.getElementById('quote-form');
+        const formMessage = document.getElementById('form-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Stop actual submission
+            const btn = form.querySelector('button');
+            const originalText = btn.innerText;
+            
+            // Simulate loading
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+            btn.classList.add('opacity-75');
+
+            setTimeout(() => {
+                btn.innerText = 'Sent!';
+                btn.classList.replace('bg-brand-green', 'bg-gray-600');
+                formMessage.classList.remove('hidden');
+                form.reset();
+                
+                // Reset button after a few seconds
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-75');
+                    btn.innerText = originalText;
+                    btn.classList.replace('bg-gray-600', 'bg-brand-green');
+                    formMessage.classList.add('hidden');
+                }, 3000);
+            }, 1500);
+        });
+
+        // 4. Navbar Transparency Toggle on Scroll
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.add('bg-white/95');
+                navbar.classList.remove('py-4'); // Make it smaller
+            } else {
+                navbar.classList.remove('shadow-md');
+                // Optional: Make it transparent at the very top if desired, 
+                // but for readability we kept it white/blur.
+            }
+        });
+    </script>
+</body>
+</html>
